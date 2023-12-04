@@ -1,3 +1,15 @@
+# By submitting this assignment, I agree to the following:
+# "Aggies do not lie, cheat, or steal, or tolerate those who do."
+# "I have not given or received any unauthorized aid on this assignment."
+#
+# Names: Caleb Mandapat
+# Diego Arroyo
+# Lisandro Demagistris
+# Mason McIntosh
+# Section: 509
+# Assignment: Final Game Project (13)
+# Date: 3 December 2023
+
 import turtle
 
 
@@ -32,6 +44,7 @@ def log(player, move):
 
 
 def endgame(player):
+    """ Displays a congratulatory screen for the winning player at the end of a game """
     # Set up the screen
     wn = turtle.Screen()
     wn.title(f'Congratulations, {player}!')
@@ -54,19 +67,14 @@ def endgame(player):
         turtle.setheading(-60)
         turtle.circle(radius, 120)
 
-    # Create the turtle object
     turtle.speed(0)
     turtle.bgcolor("white")
 
-    # Draw the face
     draw_circle("#ffff00", 0, -100, 100)
 
-    # Draw the left eye
     draw_circle("#000000", -35, 35, 10)
-    # Draw the right eye
     draw_circle("#000000", 35, 35, 10)
 
-    # Draw the mouth
     turtle.width(5)
     draw_smile_arc(-35, 20, 40)
 
@@ -77,10 +85,8 @@ def endgame(player):
     turtle.pendown()
     turtle.write("Congrats", font=("Arial", 24, "bold"))
 
-    # Hide the turtle
     turtle.hideturtle()
 
-    # Keep the window open until it is clicked
     wn.exitonclick()
 
 
@@ -207,7 +213,7 @@ def place_piece(board, player):
                                 # then, move it
                                 mv = f'{new_row}, {new_col}'
                                 log(player, mv)
-                                break # break with a successful move
+                                break  # break with a successful move
                         else:
                             print("Not an empty adjacent spot!")
                     else:
@@ -234,6 +240,7 @@ def main():
             print_board(board)
             place_piece(board, current_player)
             if check_win(board, current_player):
+                print_board(board)
                 print(f"Player {current_player} wins!")
                 endgame(current_player)
                 b = open("log_data.txt", 'a')
