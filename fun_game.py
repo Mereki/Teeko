@@ -249,16 +249,8 @@ def main():
                 break
 
             current_player = 'O' if current_player == 'X' else 'X'
+        exit()
 
-        # Ask if players want to play again
-        play_again = input("Do you want to play again? (yes/no): ").lower()
-        if play_again != "yes":
-            print("See you next time!")
-            exit()
-        else:
-            b = open("log_data.txt", 'a')
-            b.write("NEW GAME\n")
-            b.close()
 
 
 if __name__ == "__main__":
